@@ -42,10 +42,12 @@ const replaceTemplate = (tempCard, product) => {
 //SERVER
 
 const server = http.createServer((req, res) => {
-  pathName = req.url;
+  //parsing variable from url
+
+  const { query, pathname } = url.parse(req.url, true);
 
   //overview page
-  if (pathName === '/' || pathName === '/overview') {
+  if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, {
       'Content-Type': 'text/html',
     });
@@ -60,9 +62,14 @@ const server = http.createServer((req, res) => {
   }
 
   //product page
-  else if (pathName === '/product') res.end('This is product page');
+  else if (pathname === '/product') {
+    console.log(query);
+
+    res.end('This is product page');
+  }
+
   //api
-  else if (pathName === '/api') {
+  else if (pathname === '/api') {
     res.writeHead(200, 'JSON', {
       'Content-Type': 'application/json',
     });
