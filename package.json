@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/NakulPrasad/Node-Farm/issues"
   },
-  "homepage": "https://github.com/NakulPrasad/Node-Farm#readme"
+  "homepage": "https://github.com/NakulPrasad/Node-Farm#readme",
+  "dependencies": {
+    "slugify": "^1.6.5"
+  }
 }
