@@ -63,9 +63,14 @@ const server = http.createServer((req, res) => {
 
   //product page
   else if (pathname === '/product') {
-    console.log(query);
+    res.writeHead(200, {
+      'Content-Type': 'text/html',
+    });
+    // console.log(query);
+    const product = dataObj[query.id];
+    const output = replaceTemplate(tempProduct, product);
 
-    res.end('This is product page');
+    res.end(output);
   }
 
   //api
